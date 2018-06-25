@@ -31,3 +31,37 @@ def run():
         'SP500_PE_RATIO_MONTH'    | Monthly price to earnings ratio.
         'SHILLER_PE_RATIO_YEAR'   | Yearly Shiller price to earnings ratio.
         'SHILLER_PE_RATIO_MONTH'  | Monthly Shiller price to earnings ratio.''')
+
+metrics = ['SP500_BVPS_YEAR',
+               'SP500_BVPS_QUARTER',
+               'SP500_DIV_YIELD_YEAR',
+               'SP500_DIV_YIELD_MONTH',
+               'SP500_EARNINGS_YEAR',
+               'SP500_EARNINGS_MONTH',
+               'SP500_PE_RATIO_YEAR',
+               'SP500_PE_RATIO_MONTH',
+               'SHILLER_PE_RATIO_YEAR',
+               'SHILLER_PE_RATIO_MONTH']
+
+#Request user input for the metric they would like to see plotted
+
+    metric = input("Please choose a metric from the menu: ")
+
+#Check to make sure input is a usable selection, quit program otherwise
+
+    if metric in metrics:
+        pass
+    else:
+        print("That is not a valid metric, please choose one from menu and type it as seen")
+        quit("Stopping the program")
+
+#Define data variable based on chosen metric and make call to QUANDL API to get the data
+
+    data = quandl.get("MULTPL/"+metric)
+
+#Produce plot of selected metric
+
+    plt.plot(data)
+    plt.show()
+
+    print("producing plot of",metric)
