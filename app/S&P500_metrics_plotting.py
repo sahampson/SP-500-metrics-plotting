@@ -65,3 +65,8 @@ metrics = ['SP500_BVPS_YEAR',
     plt.show()
 
     print("producing plot of",metric)
+
+#Initiate the program
+
+if __name__ == "__main__":
+    run()
